@@ -1,17 +1,19 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     include "connection_database.php";
-    $name=$_POST["name"];
-    $description=$_POST["description"];
+    $name = $_POST["name"];
+    $description = $_POST["description"];
 
-    $filename = uniqid().'.jpg';
-    $filesavepath=$_SERVER['DOCUMENT_ROOT'].'/images/'.$filename;
-    move_uploaded_file($_FILES['image']['tmp_name'],$filesavepath);
+    $filename = uniqid() . '.jpg';
+    $filesavepath = $_SERVER['DOCUMENT_ROOT'] . '/images/' . $filename;
+    move_uploaded_file($_FILES['image']['tmp_name'], $filesavepath);
 
     $sql = "INSERT INTO `news` (`name`, `description`,`image`) VALUES (?, ?, ?);";
-    $dbh->prepare($sql)->execute([$name, $description, $filename]);
-    header("Location: /");
-    exit();
+    if (isset($dbh)) {
+        $dbh->prepare($sql)->execute([$name, $description, $filename]);
+        header("Location: /");
+        exit();
+    }
 }
 ?>
 
