@@ -43,6 +43,7 @@
                         <div class='d-flex justify-content-between align-items-center'>
                             <div class='btn-group'>
                                 <a href='#' class='btn btn-sm btn-outline-secondary btnDelete' data-id='{$item['id']}' >Delete</a>
+                                <a href='#' class='btn btn-sm btn-outline-secondary btnEdit' data-id='{$item['id']}' >Detail</a>
                                 <a href='#' class='btn btn-sm btn-outline-secondary btnEdit' data-id='{$item['id']}' >Edit</a>
                             </div>
                         </div>
@@ -113,6 +114,13 @@
 
                 axios.post("/delete.php", data)
                     .then(resp => {
+//                        $basedir = "/images";
+//                        $file_to_delete = "data[]";
+//                        $path = realpath($basedir."/".$file_to_delete);
+//                        if (substr($path, 0, strlen($basedir)) != $basedir)
+//                            die ("Access denied");
+//
+//                        unlink($path);
                         console.log("script", resp.data);
                         alert("server result ".resp.data);
                     });
