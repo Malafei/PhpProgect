@@ -1,5 +1,3 @@
-
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -107,22 +105,13 @@
         for (let i=0; i<list.length; i++)
         {
             list[i].addEventListener("click", function(e) {
-                //e.preventDefault();
+                e.preventDefault();
                 const id = e.currentTarget.dataset.id;
                 const data = new FormData();
                 data.append("id", id);
-
                 axios.post("/delete.php", data)
                     .then(resp => {
-//                        $basedir = "/images";
-//                        $file_to_delete = "data[]";
-//                        $path = realpath($basedir."/".$file_to_delete);
-//                        if (substr($path, 0, strlen($basedir)) != $basedir)
-//                            die ("Access denied");
-//
-//                        unlink($path);
-                        console.log("script", resp.data);
-                        alert("server result ".resp.data);
+                        window.location.reload();
                     });
             });
         }
