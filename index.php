@@ -41,8 +41,9 @@
                         <div class='d-flex justify-content-between align-items-center'>
                             <div class='btn-group'>
                                 <a href='#' class='btn btn-sm btn-outline-secondary btnDelete' data-id='{$item['id']}' >Delete</a>
-                                <a href='#' class='btn btn-sm btn-outline-secondary btnEdit' data-id='{$item['id']}' >Detail</a>
-                                <a href='#' class='btn btn-sm btn-outline-secondary btnEdit' data-id='{$item['id']}' >Edit</a>
+                                <a href='#' class='btn btn-sm btn-outline-secondary' data-id='{$item['id']}' >Detail</a>
+                                <a href='edit.php?id=".$item["id"]."' class='btn btn-sm btn-outline-secondary'>Edit</a>
+                                
                             </div>
                         </div>
                     </div>
